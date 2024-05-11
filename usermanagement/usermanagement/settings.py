@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/₹
 
 from pathlib import Path
 import os
+from django.core.wsgi import get_wsgi_application
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,7 +35,7 @@ MEDIA_URL = "/media/"
 
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -133,4 +134,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+application= get_wsgi_application()
+app=application
 
