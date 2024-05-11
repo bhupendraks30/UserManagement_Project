@@ -59,5 +59,18 @@ class LoginUser(APIView):
         #             Response({'error':'200','message':'wrong credential'})                 
         # else:
         #     return Response({'error':'400','message':'User does not exist'})
+class postImage(APIView):
+    def post(self,request):
+        # save=ImageFiles.objects.create(
+        #     image=request.data['image']
+        # )
+        # save.save()
+        image=request.data.get('image')
+        myImage=ImageFiles(image=image)
+        myImage.save()
+        return Response({"successfu"})
     
-
+class getImages(APIView):
+    def get(self,request):
+        images = ImageFiles.objects.all().values()
+        return Response(images)

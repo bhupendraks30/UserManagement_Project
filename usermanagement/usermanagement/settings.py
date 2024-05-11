@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/₹
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,6 +25,14 @@ SECRET_KEY = 'django-insecure-bv-+nzb%^w!976+01n+qt^r!i%un&$1iq)_@*l^edumik+iqt_
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ROOT_URLCONF = 'usermanagement.urls'
+STATIC_URL = "static/"
+STATIC_URL = "/staticfiles/"
+STATIC_ROOT = os.path.join(BASE_DIR, "ibitf_project/static")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -51,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'usermanagement.urls'
+
 
 TEMPLATES = [
     {
@@ -123,3 +132,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

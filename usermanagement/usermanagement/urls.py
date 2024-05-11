@@ -17,11 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from api import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/',views.UserRegister.as_view()),
     path('showuser/',views.ShowUsers.as_view()),
     path('deleteuser/',views.DeleteUser.as_view()),
-    path('loginuser/',views.LoginUser.as_view())
-]
+    path('loginuser/',views.LoginUser.as_view()),
+    path('postImage/',views.postImage.as_view()),
+    path('getImage/',views.getImages.as_view()),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
